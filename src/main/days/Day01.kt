@@ -1,4 +1,4 @@
-package main.day1
+package main.days
 
 import main.utils.FileReader
 import kotlin.math.absoluteValue
@@ -6,7 +6,7 @@ import kotlin.math.absoluteValue
 fun main()
 {
     val fileReader = FileReader()
-    val input = fileReader.readFile("/day1-input")
+    val input = fileReader.readFile("/day01-input")
 
     val leftList = mutableListOf<Int>()
     val rightList = mutableListOf<Int>()
