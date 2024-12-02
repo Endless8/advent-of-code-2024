@@ -1,6 +1,4 @@
-import kotlin.math.absoluteValue
-
-const val input = """76569   66648
+76569   66648
 38663   66530
 60350   60777
 35330   13469
@@ -999,42 +997,4 @@ const val input = """76569   66648
 56403   10503
 23533   40965
 82416   74888
-24373   20896"""
-fun main() {
-    val leftList = mutableListOf<Int>()
-    val rightList = mutableListOf<Int>()
-
-    input.lines().forEach {
-        val numbers = "\\d+".toRegex().findAll(it).map { it.value.toInt() }.toList()
-        leftList.add(numbers[0])
-        rightList.add(numbers[1])
-    }
-
-    leftList.sort()
-    rightList.sort()
-
-    var distance = 0
-
-    for (index in leftList.indices) {
-        val leftNumber = leftList[index]
-        val rightNumber = rightList[index]
-
-        distance += (leftNumber - rightNumber).absoluteValue
-    }
-
-    println(distance)
-
-    var totalSimilarityScore = 0
-    leftList.forEach { leftNumber ->
-        var similarityScore = 0
-        rightList.forEach { rightNumber ->
-            if (rightNumber == leftNumber) {
-                similarityScore++
-            }
-        }
-
-        totalSimilarityScore += leftNumber * similarityScore
-    }
-
-    println(totalSimilarityScore)
-}
+24373   20896
